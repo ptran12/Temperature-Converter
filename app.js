@@ -24,10 +24,19 @@ function fahrenheitToCelciusAndKelvin (){
     celciusInput.value = cTemp;
     kelvinInput.value = kTemp;
 
+}
 
+function kevlvinToCelciusAndFahrenheit (){
+    const kTemp = parseFloat(kelvinInput.value);
+    const cTemp = kTemp - 273.15;
+    const fTemp = 9/5 * (kTemp - 273) + 32;
+
+    // displaying on page 
+    celciusInput.value = cTemp;
+    fahrenheitInput.value = fTemp;
 
 }
 
 celciusInput.addEventListener("input", celciusToFahrenheitAndKelvin);
-
 fahrenheitInput.addEventListener("input", fahrenheitToCelciusAndKelvin);
+kelvinInput.addEventListener("input", kevlvinToCelciusAndFahrenheit);
