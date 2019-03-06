@@ -11,7 +11,8 @@ body {
     background: black;
 }
 
-div {
+/* view point height */
+div {  
     height: 33.33vh 
 }
 
@@ -23,6 +24,7 @@ div {
 input[type=number] {
     width: 100%;
     height: 100%;
+    outline: none;
     background: black;
     color: white;
     font-size: 10em;
