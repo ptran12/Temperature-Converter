@@ -3,6 +3,10 @@ const fahrenheitInput = document.querySelector("#fahrenheit > input");
 const kelvinInput = document.querySelector("#kelvin > input");
 
 
+function roundNum(num) {
+    return Math.round(num*100)/100;
+}
+
 function celciusToFahrenheitAndKelvin(){
     const cTemp = parseFloat(celciusInput.value); //converting string to number
     // equation to convert celcius to fahrenheit
@@ -10,8 +14,8 @@ function celciusToFahrenheitAndKelvin(){
     //equation for kelvin
     const kTemp = cTemp + 273.15;
     
-    fahrenheitInput.value = fTemp;
-    kelvinInput.value = kTemp;
+    fahrenheitInput.value = roundNum(fTemp);
+    kelvinInput.value = roundNum(kTemp);
 }
 
 function fahrenheitToCelciusAndKelvin (){
@@ -21,22 +25,27 @@ function fahrenheitToCelciusAndKelvin (){
     const kTemp = (fTemp + 459.67) * 5/9
 
     // displaying on page 
-    celciusInput.value = cTemp;
-    kelvinInput.value = kTemp;
+    celciusInput.value = roundNum(cTemp);
+    kelvinInput.value = roundNum(kTemp);
 
 }
 
-function kevlvinToCelciusAndFahrenheit (){
+function kelvinToCelciusAndFahrenheit (){
     const kTemp = parseFloat(kelvinInput.value);
     const cTemp = kTemp - 273.15;
     const fTemp = 9/5 * (kTemp - 273) + 32;
 
     // displaying on page 
-    celciusInput.value = cTemp;
-    fahrenheitInput.value = fTemp;
+    celciusInput.value = roundNum(cTemp);
+    fahrenheitInput.value = roundNum(fTemp);
 
 }
 
-celciusInput.addEventListener("input", celciusToFahrenheitAndKelvin);
-fahrenheitInput.addEventListener("input", fahrenheitToCelciusAndKelvin);
-kelvinInput.addEventListener("input", kevlvinToCelciusAndFahrenheit);
+function mainTemps() {
+    celciusInput.addEventListener("input", celciusToFahrenheitAndKelvin);
+    fahrenheitInput.addEventListener("input", fahrenheitToCelciusAndKelvin);
+    kelvinInput.addEventListener("input", kelvinToCelciusAndFahrenheit);
+}
+
+mainTemps();
+
